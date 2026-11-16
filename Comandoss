@@ -1,0 +1,5 @@
+javac -encoding UTF-8 -d bin src/bolonhaemilano/*.javajavac -encoding UTF-8 -d bin src/bolonhaemilano/*.java
+☝️pra rodar o bagulho
+
+java -cp bin bolonhaemilano.Main
+☝️pra inciar o jogo

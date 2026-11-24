@@ -1,0 +1,81 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Main { +main(args): void }
+class Menu {
+  -scanner: Scanner
+  -emExecucao: boolean
+  -partida: Partida
+  -cidade: Cidade
+  +executar(): void
+  -lerInteiro(): int
+  -exigirJogoEmAndamento(): boolean
+  -iniciarNovoJogo(): void
+  -encerrarTurno(): void
+  -exibirClassificacao(): void
+  -encerrarPartida(): void
+}
+class Partida {
+  +MAXIMO_JOGADORES: int = 4
+  -ANO_FINAL: int = 1410
+  -indiceAtual: int
+  +adicionarCidade(c): boolean
+  +getCidadeAtual(): Cidade
+  +passarTurno(): boolean
+  +encerrarAno(nobreza): List<Cidade>
+  +terminou(): boolean
+  +determinarVencedor(nobreza): Cidade
+}
+class Jogador {
+  -TITULOS: String[]
+  -nome: String
+  -nivelTitulo: int
+  +getTitulo(): String
+  +promover(): boolean
+  +ehMonarca(): boolean
+}
+class Cidade {
+  -nome: String
+  -anoAtual: int
+  -florins: int
+  -terras: int
+  -graos: int
+  -servos: int
+  -taxaImposto: int
+  -nivelJustica: String
+  -soldados: int
+  -construcoes: int
+  -colheitaFeita: boolean
+  -impostosArrecadados: boolean
+  +avancarAno(): void
+  +exibirStatus(): void
+}
+class Mercado
+class Agricultura
+class Governo
+class Construcoes
+class Nobreza {
+  +calcularPrestigio(cidade): int
+  +prestigioParaProximoTitulo(jogador): int
+  +verificarPromocao(cidade): boolean
+}
+class Testes <<static>> {
+  +main(args): void
+  -verificar(descricao, condicao): void
+}
+Main ..> Menu
+Menu --> Partida
+Menu ..> Mercado
+Menu ..> Agricultura
+Menu ..> Governo
+Menu ..> Construcoes
+Menu ..> Nobreza
+Partida "1" o-- "1..4" Cidade
+Cidade "1" --> "1" Jogador : dono
+Testes ..> Cidade
+Testes ..> Mercado
+Testes ..> Agricultura
+Testes ..> Governo
+Testes ..> Construcoes
+Testes ..> Nobreza
+Testes ..> Partida
+@enduml

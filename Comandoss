@@ -4,6 +4,6 @@ javac -encoding UTF-8 -d bin src/bolonhaemilano/*.javajavac -encoding UTF-8 -d b
 java -cp bin bolonhaemilano.Main
 ☝️pra inciar o jogo
 
-socorro deus
-mais socorro deus
-n ageunto mais socorro
+
+javac -d bin src/bolonhaemilano/*.java
+java -cp bin bolonhaemilano.Testes
